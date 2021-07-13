@@ -37,4 +37,30 @@ while(totalEmpHr<=MAX_HR_IN_MONTH && totalWorkingDays<NUM_OF_WORKING_DAYS)
 let empWage = calculateDailyWage(totalEmpHr);
 console.log("Total Working days: "+totalWorkingDays+" total employee Hr: " + totalEmpHr + " Employee wage:" + empWage);
 
-  
+let totEmpWage=0;
+function sum(dailyWage)
+{
+    return totEmpWage+=dailyWage;
+}
+empDailyWageArray.forEach(sum);
+console.log("total days:"+totalWorkingDays+" total hours:"+totalEmpHr+" Employee Wage:"+totEmpWage);
+
+
+function totalWages(totalWage,dailyWage)
+{
+    return totalWage+dailyWage;
+}
+console.log("Employee wage with reduce:"+empDailyWageArray.reduce(totalWages,0));
+
+//Employee wage array have every days wage
+//interating every element of employee and creating new Data structure
+let dailyCntr=0;
+function mapDayWithWage(dailyWage)
+{
+    dailyCntr++;
+    console.log(dailyCntr + "=" + dailyWage);
+}
+let mapDayWithWageArray=empDailyWageArray.map(mapDayWithWage);
+console.log("-----------Daily wage map----------");
+console.log(mapDayWithWageArray);
+
